@@ -1,0 +1,44 @@
+[ui]
+username = Sebastien Labbe <slabqc at gmail.com>
+
+[extensions]
+hgext.mq =
+#hgext.highlith =
+hgext.record =
+extdiff =
+color =
+pager =
+churn =
+hgext.bookmarks =
+hggit = 
+largefiles =
+
+[color]
+# see hg help color
+status.modified = cyan bold
+qseries.applied = red bold
+qseries.unapplied = green bold
+
+[pager]
+pager = LESS='FSRX' less
+attend = log, help, version, status, qseries, diff
+
+[merge-tools]
+hg-diff3-merge.priority = 100
+
+[alias]
+qstatus = status --rev -2:.
+
+[hooks]
+pre-qrefresh = (echo "Are you sure you want to refresh the following changes:"; sage -hg status; echo -n "into the patch: "; sage -hg qtop; read -p "(y/n)" answer; test "$answer" = "y"  )
+
+[extdiff]
+cmd.interdiff = hg-interdiff
+
+[diff]
+nodates=1
+showfunc=1
+git=1
+
+[auth]
+combinat_patches.prefix = http://combinat.sagemath.org/patches/

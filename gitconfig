@@ -1,0 +1,26 @@
+[user]
+	name = Sébastien Labbé
+	email = slabqc@gmail.com
+[credential]
+	helper = osxkeychain
+[core]
+	editor = vim
+[alias]
+	ci = commit -a
+	co = checkout
+	#st = status
+	st = status -a
+	stat = status -a
+	br = branch
+	wdiff = diff --color-words
+	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)[%an]%Creset' --abbrev-commit --date=relative
+[merge]
+	log = true
+[push]
+	default = upstream
+
+# see http://wiki.sagemath.org/TentativeConventions#Step_3:_clone_the_git_repository_from_Trac
+[color]
+	ui = true
+[color "diff"]
+	whitespace = red reverse

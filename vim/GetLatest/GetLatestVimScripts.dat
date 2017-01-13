@@ -1,0 +1,12 @@
+ScriptID SourceID Filename
+--------------------------
+# Les lignes commençant par '#' sont des commentaires
+# Les deux premières lignes sont nécessaires
+#
+# Script permettant d'avoir une complétion grâce à la touche <tab>
+# le premier numéro a été obtenu dans l'url du script:
+# http://www.vim.org/scripts/script.php?script_id=1643
+1643 11853 :AutoInstall: supertab.vim
+2527 10034 :AutoInstall: jpythonfold.vim
+415 11578 :AutoInstall: zenburn.vim
+
