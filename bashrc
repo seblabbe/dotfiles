@@ -124,6 +124,7 @@ fi
 export PATH=~/Applications/bin:$PATH
 export PATH=~/bin:$PATH
 export PATH=~/GitBox/scripts:$PATH
+export PATH=~/GitBox/sage:$PATH
 
 # prompt (capital W for directory, small w for complete path)
 export PS1="$HI\u@\h $SI\W$NM $IN$ "
