@@ -1,14 +1,14 @@
 
 " An example for a vimrc file.
 "
-" Maintainer:	Bram Moolenaar <Bram@vim.org>
-" Last change:	2006 Nov 16
+" Maintainer:    Bram Moolenaar <Bram@vim.org>
+" Last change:    2006 Nov 16
 "
 " To use it, copy it to
 "     for Unix and OS/2:  ~/.vimrc
-"	      for Amiga:  s:.vimrc
+"          for Amiga:  s:.vimrc
 "  for MS-DOS and Win32:  $VIM\_vimrc
-"	    for OpenVMS:  sys$login:.vimrc
+"        for OpenVMS:  sys$login:.vimrc
 
 " When started as "evim", evim.vim will already have done these settings.
 if v:progname =~? "evim"
@@ -30,16 +30,16 @@ set nocompatible
 set backspace=indent,eol,start
 
 if has("vms")
-  set nobackup		" do not keep a backup file, use versions instead
+  set nobackup        " do not keep a backup file, use versions instead
 else
-  set backup		               " keep a backup file
-  set backupdir=$HOME/tmp/backup       " where to put backup files
-  set directory=$HOME/tmp/swapfiles    " directory to place swap files in
+  set backup          " keep a backup file
+  set backupdir=/tmp  " where to put backup files
+  set directory=/tmp  " directory to place swap files in
 endif
-set history=50		" keep 50 lines of command line history
-set ruler		" show the cursor position all the time
-set showcmd		" display incomplete commands
-set incsearch		" do incremental searching
+set history=50        " keep 50 lines of command line history
+set ruler             " show the cursor position all the time
+set showcmd           " display incomplete commands
+set incsearch         " do incremental searching
 
 if $VIM_CRONTAB == "true"
 set nobackup
