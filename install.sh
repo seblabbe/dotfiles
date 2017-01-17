@@ -12,6 +12,8 @@ ln -s ${BASEDIR}/inputrc ~/.inputrc
 
 # vim
 ln -s ${BASEDIR}/vimrc ~/.vimrc
+
+# bug next line is not idempotent: directory vim contains directory vim ...
 ln -s ${BASEDIR}/vim/ ~/.vim
 
 # tmux
