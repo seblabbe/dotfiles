@@ -3,8 +3,9 @@
 
 BASEDIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
-FILES="bash_aliases bash_profile bashrc dircolors gitconfig hgrc inputrc tikz2pdf.tex tmux.conf vim/ vimrc"
 
+# dot files
+FILES="bash_aliases bash_profile bashrc dircolors gitconfig hgrc inputrc tikz2pdf.tex tmux.conf vim/ vimrc"
 for FILE in $FILES
 do
     if [ -f ~/.$FILE ] || [ -d ~/.$FILE ]; then
@@ -12,6 +13,19 @@ do
     else
         echo "Creation of symbolic link for $FILE"
         ln -s ${BASEDIR}/$FILE ~/.$FILE
+    fi
+done
+
+# Ipython config
+DEST=`sage -ipython locate`/profile_default
+FILES="ipython_config.py ipython_kernel_config.py"
+for FILE in $FILES
+do
+    if [ -f $DEST/$FILE ] ; then
+        echo "File $DEST/$FILE exists: we do nothing."
+    else
+        echo "Creation of symbolic link for $FILE"
+        ln -s ${BASEDIR}/$FILE $DEST/$FILE
     fi
 done
 
@@ -24,14 +38,15 @@ elif [[ "$unamestr" == 'Darwin' ]]; then
 fi
 
 # Download vim spell files (big files not under version control)
+DEST=vim/spell
 FILES="fr.utf-8.spl fr.utf-8.sug"
 for FILE in $FILES
 do
-    if [ -f vim/spell/$FILE ] ; then
-        echo "File $FILE is already in vim/spell: we do nothing."
+    if [ -f $DEST/$FILE ] ; then
+        echo "File $DEST/$FILE exists: we do nothing."
     else
         $WGET http://ftp.vim.org/vim/runtime/spell/$FILE
-        mv $FILE vim/spell/
+        mv $FILE $DEST
     fi
 done
 
