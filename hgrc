@@ -9,8 +9,8 @@ extdiff =
 color =
 pager =
 churn =
-hgext.bookmarks =
-hggit = 
+#hgext.bookmarks =
+#hggit = 
 largefiles =
 
 [color]

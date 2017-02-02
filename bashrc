@@ -82,6 +82,22 @@ fi
 # see ezprompt.net for the missing code
 # export PS1="\u@\h \W\`parse_git_branch\` \\$ "
 
+# Another one
+# Couleurs du préfix du terminal (dark)
+# NM="\[\033[0;38m\]" 
+# HI="\[\033[0;37m\]" 
+# HII="\[\033[0;36m\]" 
+# SI="\[\033[0;33m\]"
+# IN="\[\033[0m\]"
+# Couleurs du préfix du terminal (light)
+# NM="\[\033[0;0m\]" 
+# HI="\[\033[0;37m\]" 
+# HII="\[\033[0;36m\]" 
+# SI="\[\033[0;33m\]"
+# IN="\[\033[0m\]"
+# export PS1="$NM[ $HI\u $HII\h $SI\w$NM ] $IN"
+# export PS1="$HI\u@\h $SI\w$NM $IN$ "
+
 if [ "$color_prompt" = yes ]; then
     PS1='${debian_chroot:+($debian_chroot)}\[\033[01;33m\]\u@\h\[\033[00m\] \[\033[01;34m\]\W\[\033[00m\] \$ '
 else
@@ -147,3 +163,9 @@ export PATH=~/bin:$PATH
 export PATH=~/GitBox/scripts:$PATH
 export PATH=~/GitBox/sage:$PATH
 
+# MacPorts Installer addition on 2015-11-24_at_23:19:20: adding an appropriate PATH variable for use with MacPorts.
+unamestr=`uname`
+if [[ "$unamestr" == 'Darwin' ]]; then
+   export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
+   # Finished adapting your PATH environment variable for use with MacPorts.
+fi

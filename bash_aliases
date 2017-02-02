@@ -1,3 +1,4 @@
+# some aliases
 alias cd..="cd .."
 alias c="clear"
 
@@ -14,11 +15,16 @@ alias crontab="VIM_CRONTAB=true crontab"
 # trouve du .cshrc du lirmm:
 alias ff='/usr/bin/find . -name \!* -print'
 
-# pour mon mac:
-alias duse='du -ha --max-depth=1'
+# os dependant aliases
+unamestr=`uname`
+if [[ "$unamestr" == 'Linux' ]]; then
+   # pour thales:
+   alias dus='du -d1 -h'
+   # open for ubuntu
+   alias open='gnome-open'
+elif [[ "$unamestr" == 'Darwin' ]]; then
+   # pour mon mac:
+   alias dus='du -ha --max-depth=1'
+fi
 
-# pour thales:
-alias dus='du -d1 -h'
 
-# open for ubuntu
-alias open='gnome-open'
