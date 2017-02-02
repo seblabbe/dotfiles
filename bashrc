@@ -61,10 +61,31 @@ if [ -n "$force_color_prompt" ]; then
     fi
 fi
 
+############
+# Prompt
+############
+
+# \u : user
+# \h : host
+# \W : directory
+# \w : complete path to directory
+# 31=rouge, 32=vert, 33=jaune
+# couleur: \[\e[33m\]something\[\e[m\]
+
+# a basic one
+# export PS1="\u@\h \W \\$ "
+
+# with color
+# export PS1="\[\e[33m\]\u@\h \W \\$ \[\e[m\]"
+
+# with git stuff
+# see ezprompt.net for the missing code
+# export PS1="\u@\h \W\`parse_git_branch\` \\$ "
+
 if [ "$color_prompt" = yes ]; then
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;33m\]\u@\h\[\033[00m\] \[\033[01;34m\]\W\[\033[00m\] \$ '
 else
-    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+    PS1='${debian_chroot:+($debian_chroot)}\u@\h \W \$ '
 fi
 unset color_prompt force_color_prompt
 
@@ -125,7 +146,4 @@ export PATH=~/Applications/bin:$PATH
 export PATH=~/bin:$PATH
 export PATH=~/GitBox/scripts:$PATH
 export PATH=~/GitBox/sage:$PATH
-
-# prompt (capital W for directory, small w for complete path)
-export PS1="$HI\u@\h $SI\W$NM $IN$ "
 
