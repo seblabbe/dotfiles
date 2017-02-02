@@ -310,7 +310,7 @@ c.InteractiveShell.colors = 'Linux'
 # Options for displaying tab completions, 'column', 'multicolumn', and
 # 'readlinelike'. These options are for `prompt_toolkit`, see `prompt_toolkit`
 # documentation for more information.
-# Seb Labbé 2 fev 2017: See https://ask.sagemath.org/question/35826/terminal-with-autocomplete-no-longer-useful/#35848
+# Seb Labbe 2 fev 2017: See https://ask.sagemath.org/question/35826/terminal-with-autocomplete-no-longer-useful/#35848
 c.TerminalInteractiveShell.display_completions = 'readlinelike'
 
 # Shortcut style to use at the prompt. 'vi' or 'emacs'.
