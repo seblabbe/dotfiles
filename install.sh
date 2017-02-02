@@ -19,7 +19,7 @@ mv fr.utf-8.sug vim/spell/
 ln -s ${BASEDIR}/bash_aliases ~/.bash_aliases
 ln -s ${BASEDIR}/bash_profile ~/.bash_profile
 ln -s ${BASEDIR}/bashrc ~/.bashrc
-ln -s ${BASEDIR}/dir_colors ~/.dir_colors
+ln -s ${BASEDIR}/dircolors ~/.dircolors
 ln -s ${BASEDIR}/inputrc ~/.inputrc
 
 # tmux
