@@ -1,6 +1,7 @@
 # some aliases
 alias cd..="cd .."
 alias c="clear"
+alias m=more
 
 # some more ls aliases
 alias l='ls -CF'
@@ -26,5 +27,3 @@ elif [[ "$unamestr" == 'Darwin' ]]; then
    # pour mon mac:
    alias dus='du -ha --max-depth=1'
 fi
-
-

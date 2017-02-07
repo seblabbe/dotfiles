@@ -5,7 +5,7 @@ BASEDIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 
 # dot files
-FILES="bash_aliases bash_profile bashrc dircolors gitconfig hgrc inputrc tikz2pdf.tex tmux.conf vim/ vimrc"
+FILES="bash_aliases bash_profile bashrc dircolors gitconfig hgrc inputrc tikz2pdf.tex tmux.conf vim vimrc"
 for FILE in $FILES
 do
     if [ -f ~/.$FILE ] || [ -d ~/.$FILE ]; then
