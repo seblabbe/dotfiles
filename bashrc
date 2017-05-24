@@ -169,3 +169,12 @@ if [[ "$unamestr" == 'Darwin' ]]; then
    export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
    # Finished adapting your PATH environment variable for use with MacPorts.
 fi
+
+# Add Gurobi to the PATH according to its documentation
+# file:///opt/gurobi702/linux64/docs/quickstart_linux/software_installation_guid.html
+if [ -d /opt/gurobi702/linux64 ]; then
+   echo "Found Gurobi 7.02: adding it to the paths..."
+   export GUROBI_HOME="/opt/gurobi702/linux64"
+   export PATH="${PATH}:${GUROBI_HOME}/bin"
+   export LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:${GUROBI_HOME}/lib"
+fi
