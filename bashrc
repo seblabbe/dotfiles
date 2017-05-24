@@ -182,12 +182,10 @@ if [ -d /opt/gurobi702/linux64 ]; then
    #Set sage side according to
    # http://doc.sagemath.org/html/en/thematic_tutorials/linear_programming.html#using-cplex-or-gurobi-through-sage
    export GRB_LICENSE_FILE=~/gurobi.lic
-   cd $SAGE_ROOT/local/lib
-   if [ ! -f libgurobi.so ] ; then
-       ln -s ${GUROBI_HOME}/lib/libgurobi70.so libgurobi.so
+   if [ ! -f $SAGE_ROOT/local/lib/libgurobi.so ] ; then
+       ln -s ${GUROBI_HOME}/lib/libgurobi70.so $SAGE_ROOT/local/lib/libgurobi.so
    fi
-   cd $SAGE_ROOT/local/include
-   if [ ! -f gurobi_c.h ] ; then
-       ln -s ${GUROBI_HOME}/include/gurobi_c.h .
+   if [ ! -f $SAGE_ROOT/local/include/gurobi_c.h ] ; then
+       ln -s ${GUROBI_HOME}/include/gurobi_c.h $SAGE_ROOT/local/include
    fi
 fi
