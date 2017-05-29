@@ -16,6 +16,9 @@ do
     fi
 done
 
+# Create ~/tmp dir for vim
+mkdir -p ~/tmp
+
 # Ipython config
 DEST=`sage -ipython locate`/profile_default
 FILES="ipython_config.py ipython_kernel_config.py"
