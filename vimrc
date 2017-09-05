@@ -183,3 +183,7 @@ nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
 " peut-être qu'il faut desactiver l'autre pour que ça fonctionne bien
 " autocmd FileType python set foldmethod=indent
 " autocmd FileType python set foldnestmax=2
+"
+
+" instead of set paste vs set nopaste
+set pastetoggle=<F10>
