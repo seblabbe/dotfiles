@@ -162,6 +162,7 @@ export PATH=~/Applications/bin:$PATH
 export PATH=~/bin:$PATH
 export PATH=~/GitBox/scripts:$PATH
 export PATH=~/GitBox/sage:$PATH
+export PATH=~/GitBox/sage2:$PATH
 
 # MacPorts Installer addition on 2015-11-24_at_23:19:20: adding an appropriate PATH variable for use with MacPorts.
 unamestr=`uname`
