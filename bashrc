@@ -190,3 +190,8 @@ if [ -d /opt/gurobi702/linux64 ]; then
        ln -s ${GUROBI_HOME}/include/gurobi_c.h $SAGE_ROOT/local/include
    fi
 fi
+
+#https://stackoverflow.com/questions/36394101/pip-install-locale-error-unsupported-locale-setting/43203667
+#https://unix.stackexchange.com/questions/87745/what-does-lc-all-c-do
+export LC_ALL=C
+
