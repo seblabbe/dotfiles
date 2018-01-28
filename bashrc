@@ -161,8 +161,8 @@ fi
 export PATH=~/Applications/bin:$PATH
 export PATH=~/bin:$PATH
 export PATH=~/GitBox/scripts:$PATH
+#export PATH=~/GitBox/sage2:$PATH
 export PATH=~/GitBox/sage:$PATH
-export PATH=~/GitBox/sage2:$PATH
 
 # MacPorts Installer addition on 2015-11-24_at_23:19:20: adding an appropriate PATH variable for use with MacPorts.
 unamestr=`uname`
@@ -190,8 +190,4 @@ if [ -d /opt/gurobi702/linux64 ]; then
        ln -s ${GUROBI_HOME}/include/gurobi_c.h $SAGE_ROOT/local/include
    fi
 fi
-
-#https://stackoverflow.com/questions/36394101/pip-install-locale-error-unsupported-locale-setting/43203667
-#https://unix.stackexchange.com/questions/87745/what-does-lc-all-c-do
-export LC_ALL=C
 
