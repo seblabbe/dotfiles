@@ -173,10 +173,10 @@ fi
 
 # Add Gurobi to the PATH according to its documentation
 # file:///opt/gurobi702/linux64/docs/quickstart_linux/software_installation_guid.html
-if [ -d /opt/gurobi702/linux64 ]; then
-   #echo "Found Gurobi 7.02: adding it to the paths..."
+if [ -d /opt/gurobi800/linux64 ]; then
+   #echo "Found Gurobi 8.00: adding it to the paths..."
    export SAGE_ROOT=$HOME/GitBox/sage
-   export GUROBI_HOME=/opt/gurobi702/linux64
+   export GUROBI_HOME=/opt/gurobi800/linux64
    export PATH="${PATH}:${GUROBI_HOME}/bin"
    export LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:${GUROBI_HOME}/lib"
 
@@ -184,7 +184,7 @@ if [ -d /opt/gurobi702/linux64 ]; then
    # http://doc.sagemath.org/html/en/thematic_tutorials/linear_programming.html#using-cplex-or-gurobi-through-sage
    export GRB_LICENSE_FILE=~/gurobi.lic
    if [ ! -f $SAGE_ROOT/local/lib/libgurobi.so ] ; then
-       ln -s ${GUROBI_HOME}/lib/libgurobi70.so $SAGE_ROOT/local/lib/libgurobi.so
+       ln -s ${GUROBI_HOME}/lib/libgurobi80.so $SAGE_ROOT/local/lib/libgurobi.so
    fi
    if [ ! -f $SAGE_ROOT/local/include/gurobi_c.h ] ; then
        ln -s ${GUROBI_HOME}/include/gurobi_c.h $SAGE_ROOT/local/include
