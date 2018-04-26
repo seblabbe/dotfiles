@@ -16,6 +16,14 @@ do
     fi
 done
 
+## init.sage
+if [ -f ~/.sage/init.sage ] ; then
+    echo "File or directory ~/.sage/init.sage exists: we do nothing."
+else
+    echo "Creation of symbolic link for init.sage"
+    ln -s ${BASEDIR}/init.sage ~/.sage/init.sage
+fi
+
 # Create ~/tmp dir for vim
 mkdir -p ~/tmp
 
