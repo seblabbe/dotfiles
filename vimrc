@@ -187,3 +187,8 @@ nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
 
 " instead of set paste vs set nopaste
 set pastetoggle=<F10>
+
+" pour regénérer le fichier .spl
+" https://www.reddit.com/r/vim/comments/5zhpre/whats_the_difference_between_addspl_and_add/
+" TODO: le faire que si le spl est plus vieux que ce fichier
+" mkspell ~/.vim/spell/en.utf-8.add
