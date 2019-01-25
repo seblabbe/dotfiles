@@ -6,3 +6,9 @@ try:
 except AttributeError:
     pass
 
+z = polygen(QQ, 'z')
+K = NumberField(z**2-z-1, 'phi', embedding=RR(1.6))
+phi = K.gen()
+print("z = polygen(QQ, 'z')")
+print("K = NumberField(z**2-z-1, 'phi', embedding=RR(1.6))")
+print("phi = K.gen()")
