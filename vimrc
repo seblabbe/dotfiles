@@ -53,6 +53,7 @@ endif
 """"""
 "color scheme
 colorscheme torte
+"colorscheme nord
 "colorscheme morning
 "colorscheme github
 
