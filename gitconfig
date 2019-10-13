@@ -1,8 +1,8 @@
 [user]
 	name = Sébastien Labbé
 	email = slabqc@gmail.com
-[credential]
-	helper = osxkeychain
+#[credential]
+#	helper = osxkeychain
 [core]
 	editor = vim
 [alias]
