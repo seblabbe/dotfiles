@@ -193,23 +193,17 @@ if [ -d /opt/gurobi811/linux64 ]; then
 fi
 
 # Add CPLEX to the PATH according to its documentation
-if [ -d /opt/ibm/ILOG/CPLEX_Studio128 ]; then
-   echo "Found CPLEX 12.8: adding it to the paths..."
+if [ -d /opt/ibm/ILOG/CPLEX_Studio129 ]; then
+   echo "Found CPLEX 12.9: adding it to the paths..."
 
    SAGE_ROOT=$HOME/GitBox/sage
-   export CPLEX_HOME=/opt/ibm/ILOG/CPLEX_Studio128
+   export CPLEX_HOME=/opt/ibm/ILOG/CPLEX_Studio129
 
    #Set sage side according to
    # http://doc.sagemath.org/html/en/thematic_tutorials/linear_programming.html#using-cplex-or-gurobi-through-sage
-   if [ ! -f $SAGE_ROOT/local/lib/libcplex.a ] ; then
-       ln -s ${CPLEX_HOME}/cplex/lib/x86-64_linux/static_pic/libcplex.a $SAGE_ROOT/local/lib
-   fi
-   if [ ! -f $SAGE_ROOT/local/include/cpxconst.h ] ; then
-       ln -s ${CPLEX_HOME}/cplex/include/ilcplex/cpxconst.h $SAGE_ROOT/local/include
-   fi
-   if [ ! -f $SAGE_ROOT/local/include/cplex.h ] ; then
-       ln -s ${CPLEX_HOME}/cplex/include/ilcplex/cplex.h $SAGE_ROOT/local/include
-   fi
+   ln -s -f ${CPLEX_HOME}/cplex/lib/x86-64_linux/static_pic/libcplex.a $SAGE_ROOT/local/lib
+   ln -s -f ${CPLEX_HOME}/cplex/include/ilcplex/cpxconst.h $SAGE_ROOT/local/include
+   ln -s -f ${CPLEX_HOME}/cplex/include/ilcplex/cplex.h $SAGE_ROOT/local/include
 fi
 
 
