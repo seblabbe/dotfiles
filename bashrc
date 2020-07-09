@@ -163,6 +163,7 @@ export PATH=~/bin:$PATH
 export PATH=~/GitBox/scripts:$PATH
 #export PATH=~/GitBox/sage2:$PATH
 export PATH=~/GitBox/sage:$PATH
+export PATH=~/GitBox/git-trac-command/bin:$PATH
 
 # MacPorts Installer addition on 2015-11-24_at_23:19:20: adding an appropriate PATH variable for use with MacPorts.
 unamestr=`uname`
@@ -171,26 +172,26 @@ if [[ "$unamestr" == 'Darwin' ]]; then
    # Finished adapting your PATH environment variable for use with MacPorts.
 fi
 
-# Add Gurobi to the PATH according to its documentation
-# file:///opt/gurobi811/linux64/docs/quickstart_linux/software_installation_guid.html
-if [ -d /opt/gurobi811/linux64 ]; then
-   #echo "Found Gurobi: adding it to the paths..."
-
-   SAGE_ROOT=$HOME/GitBox/sage
-   export GUROBI_HOME=/opt/gurobi811/linux64
-   export PATH="${PATH}:${GUROBI_HOME}/bin"
-   export LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:${GUROBI_HOME}/lib"
-
-   #Set sage side according to
-   # http://doc.sagemath.org/html/en/thematic_tutorials/linear_programming.html#using-cplex-or-gurobi-through-sage
-   export GRB_LICENSE_FILE=~/gurobi.lic
-   if [ ! -f $SAGE_ROOT/local/lib/libgurobi.so ] ; then
-       ln -s ${GUROBI_HOME}/lib/libgurobi81.so $SAGE_ROOT/local/lib/libgurobi.so
-   fi
-   if [ ! -f $SAGE_ROOT/local/include/gurobi_c.h ] ; then
-       ln -s ${GUROBI_HOME}/include/gurobi_c.h $SAGE_ROOT/local/include
-   fi
-fi
+## Add Gurobi to the PATH according to its documentation
+## file:///opt/gurobi811/linux64/docs/quickstart_linux/software_installation_guid.html
+#if [ -d /opt/gurobi811/linux64 ]; then
+#   #echo "Found Gurobi: adding it to the paths..."
+#
+#   SAGE_ROOT=$HOME/GitBox/sage
+#   export GUROBI_HOME=/opt/gurobi811/linux64
+#   export PATH="${PATH}:${GUROBI_HOME}/bin"
+#   export LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:${GUROBI_HOME}/lib"
+#
+#   #Set sage side according to
+#   # http://doc.sagemath.org/html/en/thematic_tutorials/linear_programming.html#using-cplex-or-gurobi-through-sage
+#   export GRB_LICENSE_FILE=~/gurobi.lic
+#   if [ ! -f $SAGE_ROOT/local/lib/libgurobi.so ] ; then
+#       ln -s ${GUROBI_HOME}/lib/libgurobi81.so $SAGE_ROOT/local/lib/libgurobi.so
+#   fi
+#   if [ ! -f $SAGE_ROOT/local/include/gurobi_c.h ] ; then
+#       ln -s ${GUROBI_HOME}/include/gurobi_c.h $SAGE_ROOT/local/include
+#   fi
+#fi
 
 # Add CPLEX to the PATH according to its documentation
 if [ -d /opt/ibm/ILOG/CPLEX_Studio129 ]; then
