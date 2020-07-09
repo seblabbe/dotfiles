@@ -86,12 +86,12 @@ autocmd BufRead,BufNewFile *.pyx,*.spyx,*.pxi set filetype=python
 autocmd BufRead,BufNewFile *.rst,*.txt set filetype=rst
 autocmd BufRead,BufNewFile *.tikz set filetype=tex
 autocmd BufRead,BufNewFile *.tex set filetype=tex
-autocmd BufRead,BufNewFile *.sage compiler sageexterne
+"autocmd BufRead,BufNewFile *.sage compiler sageexterne
 
 """"""
 " Python/Sage settings
 "autocmd FileType python set makeprg=sage\ -b\ &&\ sage\ -t\ %
-autocmd FileType python compiler sage
+"autocmd FileType python compiler sage
 " to avoid sage to detach a file every time it is saved
 autocmd Filetype python,cython set backupcopy=yes
 autocmd FileType python setlocal textwidth=75
@@ -112,7 +112,9 @@ map Q gq
 
 " Press i to enter insert mode, and ii to exit.
 " :imap ii <Esc>
-:imap jj <Esc>
+inoremap jk <Esc>
+" https://learnvimscriptthehardway.stevelosh.com/chapters/10.html
+"inoremap <esc> <nop>
 
 " Two semicolons are easy to type.
 " :imap ;; <Esc>
@@ -193,3 +195,19 @@ set pastetoggle=<F10>
 " https://www.reddit.com/r/vim/comments/5zhpre/whats_the_difference_between_addspl_and_add/
 " TODO: le faire que si le spl est plus vieux que ce fichier
 " mkspell ~/.vim/spell/en.utf-8.add
+"
+"
+
+function! YankSageTest(type, ...)
+    if a:0
+        let lines = getline("'<", "'>")
+    else
+        let lines = getline("'[", "']")
+    endif
+    let pattern =  '^\s*\(sage\|\.\.\.\.\): '
+    call filter(lines, {i, l -> l =~ pattern})
+    call map(lines, {i, l -> substitute(l, pattern, "", "")})
+    call setreg(v:register, join(lines, "\n"), "l")
+endfunction
+nnoremap <localleader>Y :set opfunc=YankSageTest<CR>g@
+vnoremap <localleader>Y :<C-U>call YankSageTest(visualmode(), 1)<CR>
