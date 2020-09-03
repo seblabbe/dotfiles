@@ -19,10 +19,17 @@ alias ff='/usr/bin/find . -name \!* -print'
 # os dependant aliases
 unamestr=`uname`
 if [[ "$unamestr" == 'Linux' ]]; then
+
    # pour thales:
    alias dus='du -d1 -h'
-   # open for ubuntu
-   alias open='gnome-open'
+
+   # Ubuntu version dependant aliase
+   if [[ $(lsb_release -rs) == "16.04" ]]; then
+        alias open='gnome-open'
+   else
+        alias open='xdg-open'
+   fi
+
 elif [[ "$unamestr" == 'Darwin' ]]; then
    # pour mon mac:
    alias dus='du -ha --max-depth=1'
