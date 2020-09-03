@@ -195,9 +195,13 @@ set pastetoggle=<F10>
 " https://www.reddit.com/r/vim/comments/5zhpre/whats_the_difference_between_addspl_and_add/
 " TODO: le faire que si le spl est plus vieux que ce fichier
 " mkspell ~/.vim/spell/en.utf-8.add
-"
-"
 
+
+
+" from https://learnvimscriptthehardway.stevelosh.com/
+let maplocalleader = "-"
+
+" from Marc Mezzarobba https://groups.google.com/d/msg/sage-devel/4AEMZhvQSzU/u9LZ9XgyAQAJ
 function! YankSageTest(type, ...)
     if a:0
         let lines = getline("'<", "'>")
