@@ -17,28 +17,37 @@ do
 done
 
 ## init.sage
-if [ -f ~/.sage/init.sage ] ; then
-    echo "File or directory ~/.sage/init.sage exists: we do nothing."
+if [ -d ~/.sage ] ; then
+    echo "File or directory ~/.sage exists."
+    if [ -f ~/.sage/init.sage ] ; then
+        echo "File or directory ~/.sage/init.sage exists: we do nothing."
+    else
+        echo "Creation of symbolic link for init.sage"
+        ln -s ${BASEDIR}/init.sage ~/.sage/init.sage
+    fi
 else
-    echo "Creation of symbolic link for init.sage"
-    ln -s ${BASEDIR}/init.sage ~/.sage/init.sage
+    echo "ERROR: File or directory ~/.sage does not exist: no symbolic links made for init.sage."
 fi
 
 # Create ~/tmp dir for vim
 mkdir -p ~/tmp
 
 # Ipython config
-DEST=`sage -ipython locate`/profile_default
 FILES="ipython_config.py ipython_kernel_config.py"
-for FILE in $FILES
-do
-    if [ -f $DEST/$FILE ] ; then
-        echo "File $DEST/$FILE exists: we do nothing."
-    else
-        echo "Creation of symbolic link for $FILE"
-        ln -s ${BASEDIR}/$FILE $DEST/$FILE
-    fi
-done
+if ! command -v sage &> /dev/null ; then
+    echo "ERROR: sage command could not be found: no symbolic links made for $FILES"
+else
+    DEST=`sage -ipython locate`/profile_default
+    for FILE in $FILES
+    do
+        if [ -f $DEST/$FILE ] ; then
+            echo "File $DEST/$FILE exists: we do nothing."
+        else
+            echo "Creation of symbolic link for $FILE"
+            ln -s ${BASEDIR}/$FILE $DEST/$FILE
+        fi
+    done
+fi
 
 # os dependant wget vs curl
 unamestr=`uname`
