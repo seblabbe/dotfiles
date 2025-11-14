@@ -204,6 +204,7 @@
 
 # Set the color scheme (NoColor, Neutral, Linux, or LightBG).
 c.InteractiveShell.colors = 'Linux'
+# c.InteractiveShell.colors = 'LightBG'
 
 # 
 # c.InteractiveShell.debug = False
